@@ -1,6 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
 
-
 const buildItemDataEmbedMsg = (item_title, img_url, data) => {
     console.log(`item data: ${JSON.stringify(data)}`)
     fields = Object.entries(data).map(([key, value]) => {
@@ -10,16 +9,13 @@ const buildItemDataEmbedMsg = (item_title, img_url, data) => {
         return { name: title_case, value: value } 
     })
     fields = fields.filter(a=>!!a)
-    // console.info(`fields: ${JSON.stringify(fields)}`)
     const embed = new EmbedBuilder()
         .setColor('Green')
         .setTitle(item_title)
-        // .setDescription(``)
         .addFields(
             ...fields
         )
         .setThumbnail(img_url)
-        // .setFooter({ text: 'If you have any questions or concerns as to the function of the bot, contact 0xbl00d.', iconURL: 'https://i.imgur.com/CZ278Y8.jpg' });
     return embed;
 }
 

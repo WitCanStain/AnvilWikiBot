@@ -39,7 +39,6 @@ async function wikiGetItemTitleAndCategory(query_text) {
         gsrenablerewrites: '1'
     };//action=query&format=json&prop=categories&generator=search&formatversion=2&clprop=&clshow=!hidden&clcategories=Category%3Afoods%7Ccategory%3Aweapons%7Ccategory%3Aanimals%7Ccategory%3Aresources%7Ccategory%3Aarmours%7Ccategory%3Atools%7Ccategory%3Avehicles%7Ccategory%3Astructures&gsrsearch=intitle%3A${query_text}&gsrlimit=1&gsrqiprofile=engine_autoselect&gsrinfo=rewrittenquery&gsrprop=sectiontitle%7Ctitlesnippet&gsrenablerewrites=1
     const searchParams = new URLSearchParams(query_params);
-    // console.log(`search params: ${searchParams.toString()}`)
     const res = await fetch(`https://anvilempires.wiki.gg/api.php?${searchParams.toString()}`);
     const data = (await res.json())?.query?.pages?.[0];
     const title = data?.title;
@@ -75,10 +74,8 @@ async function cargoQuery(title, category, fields) {
             formatversion: '2'
         } //https://anvilempires.wiki.gg/api.php?action=cargoquery&format=json&tables=structuretiers&fields=Tier%2CMaxHealth%2CRequiredTool&where=NameText%3D'Anvil'&formatversion=2
         const searchParams = new URLSearchParams(field_query_params);
-        // console.log(`query string: ${searchParams.toString()}`)
         const res = await fetch(`https://anvilempires.wiki.gg/api.php?${searchParams.toString()}`);
         const data = (await res.json())?.cargoquery?.[0]?.title;
-        // console.log(JSON.stringify(data));
         return data
     } catch (e) {
         console.error(e);

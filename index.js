@@ -1,4 +1,3 @@
-// const {client} = require("./ds");
 const fs = require('node:fs');
 const path = require('node:path');
 require('dotenv').config()
@@ -14,7 +13,6 @@ const client = new Client({
 });
 
 console.log(process.env.BOT_TOKEN)
-// When the client is ready, run this code (only once)
 client.commands = new Collection();
 client.once('ready', () => {
     console.log('Ready!');
