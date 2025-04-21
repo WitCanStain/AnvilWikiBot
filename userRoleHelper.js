@@ -15,7 +15,7 @@ const approveUser = async (user_id, cmd_user_id) => {
         console.info(`Member ${cmd_user_id} has command privilege.`);
         let promises = [];
         let assignment_role = member.guild.roles.cache.find(role => role.id == process.env.ASSIGNMENT_CATEGORY_ROLE_ID);
-        let accolades_role = member.guild.roles.cache.find(role => role.id == process.env.ACCOLADE_CATEGORY_ROLE_ID);
+        let accolades_role = member.guild.roles.cache.find(role => role.id == process.env.ACCOLADES_CATEGORY_ROLE_ID);
         let rank_role = member.guild.roles.cache.find(role => role.id == process.env.RANK_CATEGORY_ROLE_ID);
         let medals_role = member.guild.roles.cache.find(role => role.id == process.env.MEDALS_CATEGORY_ROLE_ID);
         let misc_role = member.guild.roles.cache.find(role => role.id == process.env.MISC_CATEGORY_ROLE_ID);

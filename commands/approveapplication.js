@@ -12,6 +12,6 @@ module.exports = {
     async execute(interaction) {
         const user_id = interaction.options.getString('user_id');
         let res = await approveUser(user_id, interaction.user.id);
-        await interaction.reply({content:res?'User succesfully approved':'Error occurred, approving failed.', ephemeral:true});
+        await interaction.followUp({content:res?'User successfully approved':'Error occurred, approving failed.', ephemeral:true});
     }
 };

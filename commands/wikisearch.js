@@ -18,6 +18,6 @@ module.exports = {
         const ephemeral = interaction.options.getBoolean('ephemeral');
         let {title, image_url, data} = await wikiQuery(item_name)
         let embed = buildItemDataEmbedMsg(title, image_url, data)
-        await interaction.reply({embeds:[embed], ephemeral:ephemeral});
+        await interaction.followUp({embeds:[embed], ephemeral:ephemeral});
     }
 };
