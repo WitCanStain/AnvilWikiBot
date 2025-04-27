@@ -26,7 +26,7 @@ const approveUser = async (user_id, cmd_user_id) => {
             if (role_to_add) promises.push(member.roles.add(role_to_add));
         }
         promises.push(member.roles.remove(visitor_role))
-        const current_nickname = member.nickname;
+        const current_nickname = member.displayName;
         console.log(`current nickname: ${current_nickname}`);
         await member.setNickname(`[ORDER] ${current_nickname}`);
         await Promise.all(promises);            
